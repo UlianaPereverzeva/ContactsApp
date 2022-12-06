@@ -13,9 +13,17 @@ class InfoAboutPersonViewController: UIViewController {
     @IBOutlet weak var nameSurnameLbl: UILabel!
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
+    
+    var personData: Person?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = personData?.name
+        nameSurnameLbl.text = "\(personData?.name ?? "") \(personData?.surname ?? "")"
+        imageOfPerson.image = UIImage(named: personData?.name ?? "")
+        phoneLbl.text = personData?.phone
+        emailLbl.text = personData?.email
         // Do any additional setup after loading the view.
     }
     
